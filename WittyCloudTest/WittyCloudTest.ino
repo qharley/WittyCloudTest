@@ -18,14 +18,14 @@ const int RED = 15;
 const int GREEN = 12;
 const int BLUE = 13;
 
-const char* ssid = "---";
-const char* password = "---";
-const char* host = "Witty";
+const char* ssid = "RINCEWIND";
+const char* password = "JhPp2x@w!$&oGW5LTn#Da$8W0IqsmVC7Z&G5jxdgQF^&5^FKX5nQqU%xnegdL0#";
+const char* host = "witty";
 
 ESP8266WebServer server(80);
 WebSocketsServer webSocket = WebSocketsServer(81);
 
-void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght) {
+void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
   String text = String((char *) &payload[0]);
   char * textC = (char *) &payload[0];
   String rssi;
@@ -114,11 +114,11 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
           break;
       
       case WStype_BIN:
-          Serial.printf("[%u] get binary lenght: %u\n", num, lenght);
-          hexdump(payload, lenght);
+          Serial.printf("[%u] get binary length: %u\n", num, length);
+          hexdump(payload, length);
 
           // send message to client
-          // webSocket.sendBIN(num, payload, lenght);
+          // webSocket.sendBIN(num, payload, length);
           break;
 }
 }
